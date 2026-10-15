@@ -1,0 +1,977 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44E3D250-F5B8-454D-BB0F-1009E9456CBC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TerrariaQuiz</RootNamespace>
+    <AssemblyName>TerrariaQuiz</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\dcourtney997\OneDrive - C2k\Documents\TerrariaQuiz\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>559779BD67C57E70F26083E37839A237AAC331E8</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>TerrariaQuiz_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.7.300.29\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Translate, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Translate.3.7.300.29\lib\net45\AWSSDK.Translate.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax, Version=4.3.1.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Api.Gax.4.3.1\lib\net462\Google.Api.Gax.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax.Rest, Version=4.3.1.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Api.Gax.Rest.4.3.1\lib\net462\Google.Api.Gax.Rest.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.60.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.60.0\lib\net461\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.60.0\lib\net461\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.60.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.60.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountManager.cs" />
+    <Compile Include="AchievementManager.cs" />
+    <Compile Include="ExtremeQuestionsManager.cs" />
+    <Compile Include="frmAchievementObtained.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAchievementObtained.Designer.cs">
+      <DependentUpon>frmAchievementObtained.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAchievements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAchievements.Designer.cs">
+      <DependentUpon>frmAchievements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdministrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdministrator.Designer.cs">
+      <DependentUpon>frmAdministrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuestionsNormal.Designer.cs">
+      <DependentUpon>frmQuestionsNormal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewInfo.Designer.cs">
+      <DependentUpon>frmViewInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HardQuestionsManager.cs" />
+    <Compile Include="NormalQuestionManager.cs" />
+    <Compile Include="PlayerAchievement.cs" />
+    <Compile Include="PlayerJson.cs" />
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuestionsEasy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuestionsEasy.Designer.cs">
+      <DependentUpon>frmQuestionsEasy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuestionsHard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuestionsHard.Designer.cs">
+      <DependentUpon>frmQuestionsHard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuestionsNormal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelp.Designer.cs">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuestionsExtreme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuestionsExtreme.Designer.cs">
+      <DependentUpon>frmQuestionsExtreme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuestionsVeryHard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuestionsVeryHard.Designer.cs">
+      <DependentUpon>frmQuestionsVeryHard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuestionTypeChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuestionTypeChooser.Designer.cs">
+      <DependentUpon>frmQuestionTypeChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegister.Designer.cs">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplashScreen.Designer.cs">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStart.Designer.cs">
+      <DependentUpon>frmStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EasyQuestionsManager.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SplashText.cs" />
+    <Compile Include="Translator.cs" />
+    <Compile Include="Version.cs" />
+    <Compile Include="VeryHardQuestionsManager.cs" />
+    <EmbeddedResource Include="frmAchievementObtained.resx">
+      <DependentUpon>frmAchievementObtained.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAchievements.resx">
+      <DependentUpon>frmAchievements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdministrator.resx">
+      <DependentUpon>frmAdministrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewInfo.resx">
+      <DependentUpon>frmViewInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuestionsEasy.resx">
+      <DependentUpon>frmQuestionsEasy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHelp.resx">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuestionsHard.resx">
+      <DependentUpon>frmQuestionsHard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuestionsNormal.resx">
+      <DependentUpon>frmQuestionsNormal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuestionsExtreme.resx">
+      <DependentUpon>frmQuestionsExtreme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuestionsVeryHard.resx">
+      <DependentUpon>frmQuestionsVeryHard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuestionTypeChooser.resx">
+      <DependentUpon>frmQuestionTypeChooser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegister.resx">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStart.resx">
+      <DependentUpon>frmStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="TerrariaQuiz_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ANDYB.TTF" />
+    <None Include="Resources\Terraria background Image Alternate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terraria Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terraria Sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buzzer Wrong Answer - Sound Effect %28HD%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ding - Sound Effect %28HD%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuMusic.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuClick.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenStart.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beach.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\corruption.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crimson.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jungle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mushroom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProgressBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aaaa.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openingSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OnOpenSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StartMusic.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crimson1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forest1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forest2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hallow1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mushroom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Snow1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Teleportation_Potion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WallOfFleshIcon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firecracker.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eater_of_Worlds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\King_Slime.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Queen_Bee.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wall_of_Flesh.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Moon_Lord.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plantera_%28First_form%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arms_Dealer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dryad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Guide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Steampunker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Traveling_Merchant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tax_Collector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terraria.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Brain_of_Cthulhu_%28First_Phase%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deerclops.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eye_of_Cthulhu_%28Phase_1%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Golem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Queen_Slime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Skeletron_Head.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Duke_Fishron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Empress_of_Light.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lunatic_Cultist.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Skeletron_Prime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\The_Destroyer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\The_Twins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Amarok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Betsy%27s_Wrath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copper_Shortsword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eventide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Onyx_Blaster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zenith.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arkhalis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scourge_of_the_Corruptor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shadowflame_Knife.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sleepy_Octopod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\The_Bee%27s_Knees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vampire_Knives.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaleidoscope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Last_Prism.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Magnet_Sphere.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Phantom_Phoenix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Terraprisma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tsunami.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Goblin_Tinkerer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Golfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Painter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stylist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Witch_Doctor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wizard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cyborg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mechanic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nurse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Party_Girl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pirate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Truffle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\underworld.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\custom-terraria-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Underground_crimson_background_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Incorrect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundRegister1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundRegister2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Front.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundMountain1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundPineTrees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundPineTrees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundHills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundSmallMountains.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundMountains.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundPineTrees2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundMountain3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundMountain2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundLake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundHills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Airship.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Air1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Air2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Air3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Air4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clouds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AchieveBorder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieve1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieve1False.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PanelTerraria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundHell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundHell2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundHell3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundHell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundHell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InnerPanelBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PanelGrayscale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TreeFalse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TreeTrue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\panelBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\panelBackground2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieve2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieve2False.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clouds2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rainbow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundHallowTrees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundHallowForest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundHills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundFloatingIslands.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieve3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieve3False.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieve4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieve4False.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieve5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieve5False.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundCourruptedHills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundCorruptedHills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCorruptedTreesFront.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCorruptedTreesMiddle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCorruptedTreesBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundCrimsonHills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundCrimsonHillsAndBones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCrimsonTrees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCrimsonTreesFront.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundCrimsonHillsLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundCrimsonHillsSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundCrimsonHillsLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundCrimsonHillsSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCrimsonFieldLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCrimsonFieldLarge2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCrimsonFieldLarge3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCrimsonFieldSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCrimsonFieldSmall2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCrimsonFieldSmall3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SkyCrimson.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundMushroomLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundMushroomSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundMushroomLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundMushroomSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundMushroomLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundMushroomLarge2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundMushroomLarge3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundMushroomSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundMushroomSmall2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundMushroomSmall3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SkyMushroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundSnowLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundSnowSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundCloudLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundCloudSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCloudLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundCloudSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundSnowLarge2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundSnowSmall2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundTreesLarge3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundTreesSmall3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Achieved.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundDesertHills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundDesertLand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundDesertCliff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hallow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundMountainVerySmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiddlegroundMountainVerySmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundHillVerySmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForegroundTreesVerySmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.Translate.3.7.300.29\analyzers\dotnet\cs\AWSSDK.Translate.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.Translate.3.7.300.29\analyzers\dotnet\cs\SharedAnalysisCode.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

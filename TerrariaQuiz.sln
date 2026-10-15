@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33529.622
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerrariaQuiz", "TerrariaQuiz\TerrariaQuiz.csproj", "{44E3D250-F5B8-454D-BB0F-1009E9456CBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6C42CAF5-469A-4E82-A3C9-4799DE4511D0}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44E3D250-F5B8-454D-BB0F-1009E9456CBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E3D250-F5B8-454D-BB0F-1009E9456CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E3D250-F5B8-454D-BB0F-1009E9456CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E3D250-F5B8-454D-BB0F-1009E9456CBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F5D49DC-3674-4E9A-8D8B-B81A4699C300}
+	EndGlobalSection
+EndGlobal
